@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-alias zsrc='source ~/.zshrc'
+alias zshrc='source ~/.zshrc'
 alias p8='ping 8.8.8.8'
 alias sshlist='sudo lsof -i -n | egrep "\<ssh\>"'
 alias restartnow='sudo shutdown -r now'
@@ -26,6 +26,7 @@ alias gaa='git add .'
 alias gp='git push'
 alias gd='git diff'
 alias gds='git diff --staged'
+alias glog="git log --graph --oneline --all --decorate --topo-order --pretty='format:%C(auto)%h%d %s %C(bold blue)<%an>"
 
 #apps
 # alias ss='python -m SimpleHTTPServer 8001' see server() and phpserver() @ .functions

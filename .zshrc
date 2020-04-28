@@ -10,9 +10,8 @@ DEFAULT_USER="flowflow"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-#agnoster of avit
-
+#ZSH_THEME="wezm"  
+ZSH_THEME="theunraveler"  
 
 # Add `~/bin` to the `$PATH`
 # export PATH="$HOME/bin:$PATH";
