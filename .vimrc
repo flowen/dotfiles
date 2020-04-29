@@ -1,7 +1,9 @@
 
 " colors and syntax
-syntax on
-colorscheme northpole
+
+"colorscheme northpole
+
+colorscheme apprentice
 
 " spaces and tabs
 set tabstop=4       " number of visual spaces per TAB
@@ -33,12 +35,15 @@ nnoremap E $
 nnoremap $ <nop>
 nnoremap ^ <nop>:
 
+" remap esc to caps-lock which is remapped to cmd+shift+option
+
 
 " plugin manager vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
