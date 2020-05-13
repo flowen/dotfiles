@@ -35,8 +35,8 @@ nnoremap E $
 nnoremap $ <nop>
 nnoremap ^ <nop>:
 
-" remap esc to caps-lock which is remapped to cmd+shift+option
-
+" Toggle relative line number
+nmap <C-L><C-L> :set invrelativenumber<CR>
 
 " plugin manager vim-plug
 call plug#begin('~/.vim/plugged')
