@@ -3,6 +3,8 @@
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/flowflow/.oh-my-zsh"
+# See ~/.aws/credentials for profiles
+export AWS_PROFILE="flowen"
 
 #set to current user so agnoster theme will ignore, type 'whoami' to find your username
 DEFAULT_USER="flowflow"
@@ -136,5 +138,36 @@ bindkey "^[[3~" delete-char
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# autoload .nvmrc
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+
+echo $ENV_VAR
+
 # export MONGO_PATH=/usr/local/mongodb
 # export PATH=$PATH:$MONGO_PATH/binexport PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
