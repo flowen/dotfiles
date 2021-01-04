@@ -13,29 +13,32 @@ alias data="cd ~/_DATA/"
 alias pr="cd ~/_DATA/_PROJECTS/"
 alias ht="cd ~/_DATA/DOCUMENTS/_htdocs"
 alias mamp="cd ~/_DATA/DOCUMENTS/_htdocs/_MAMP_htdocs"
+alias movies="cd ~/_DATA/MOVIES"
 
 #git
-alias g='git'
 alias gs='git status -s'
 alias greset='git reset --soft HEAD^'
 alias grh='git reset --hard'
 alias gc='git commit -m '
-alias gcm='git commit -m '
 alias ga='git add'
-alias gaa='git add .'
 alias gp='git push'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias glog="git log --graph --oneline --all --decorate --topo-order --pretty='format:%C(auto)%h%d %s %C(bold blue)<%an>"
+alias gbcleanlocal='git branch --v | grep "\[gone\]" | awk '{print $1}' | xargs git branch -D'
+alias gbcleanremote='git fetch --prune'
 
-#apps
-# alias ss='python -m SimpleHTTPServer 8001' see server() and phpserver() @ .functions
-alias code='open -a /Applications/Visual\ Studio\ Code.app '
-alias rx='~/.cargo/bin/rx'
+#node/npm
+alias ni='npm install'
 alias nvmrc='node -v > .nvmrc'
 
+#apps
+alias ss='python3 -m http.server 8123' #see server() and phpserver() @ .functions
+alias code='open -a /Applications/Visual\ Studio\ Code.app '
+alias rx='~/.cargo/bin/rx'
+
 #alias config for committing files to dotfiles (bare) repo
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
