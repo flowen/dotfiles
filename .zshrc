@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
@@ -5,6 +10,8 @@ export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export ZSH="/Users/flowflow/.oh-my-zsh"
 # See ~/.aws/credentials for profiles
 export AWS_PROFILE="flowen"
+# fixes up- and downarrow. See: https://apple.stackexchange.com/a/290671
+export HISTSIZE=100000
 
 #set to current user so agnoster theme will ignore, type 'whoami' to find your username
 DEFAULT_USER="flowflow"
@@ -43,8 +50,7 @@ fi;
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
+# cause zsh/themes/
 # An empty array have no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -71,7 +77,7 @@ fi;
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -81,7 +87,7 @@ fi;
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -160,6 +166,14 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# adds a time and date on the right-hand-side of the terminal
+# source: https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
+RPROMPT='%{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}'
+TMOUT=1
+TRAPALRM() {
+    zle reset-prompt
+}
+ 
 
 echo $ENV_VAR
 
@@ -171,3 +185,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

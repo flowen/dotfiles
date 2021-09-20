@@ -17,19 +17,29 @@ alias movies="cd ~/_DATA/MOVIES"
 
 #git
 alias gs='git status -s'
-alias greset='git reset --soft HEAD^'
+alias grs='git reset --soft HEAD^'
 alias grh='git reset --hard'
-alias gc='git commit -m '
+alias grm='git rm -r --cached .'
+alias gco='git checkout '
+alias gcmsg='git commit -m '
+alias gca='git commit --ammend'
+alias gcp='git cherry-pick '
+alias gcfix='git commit --fixup ' #SHA 
+alias gmerge='git merge --no-ff ' #BRANCH 
 alias ga='git add'
-alias gp='git push'
-alias gd='git diff'
-alias gds='git diff --staged'
+alias gps='git push'
+alias gpl='git pull'
+alias gdiff='git diff'
+alias gdiffs='git diff --staged'
 alias glog="git log --graph --oneline --all --decorate --topo-order --pretty='format:%C(auto)%h%d %s %C(bold blue)<%an>"
 alias gbcleanlocal='git branch --v | grep "\[gone\]" | awk '{print $1}' | xargs git branch -D'
 alias gbcleanremote='git fetch --prune'
 
 #node/npm
 alias ni='npm install'
+alias nd='npm run develop'
+alias yd='yarn develop'
+alias yb='yarn build'
 alias nvmrc='node -v > .nvmrc'
 
 #apps

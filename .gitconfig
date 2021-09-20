@@ -106,6 +106,7 @@
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 	editor = vim
+	ignorecase = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -143,3 +144,7 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false
