@@ -6,12 +6,23 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/flowflow/.oh-my-zsh"
+
+# OPEN AI API KEY
+export OPENAI_API_KEY=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
+
 # See ~/.aws/credentials for profiles
-export AWS_PROFILE="flowen"
+#export AWS_PROFILE="flowen"
+
 # fixes up- and downarrow. See: https://apple.stackexchange.com/a/290671
-export HISTSIZE=100000
+#export HISTSIZE=100000
+
+# This loads nvm.sh and sets the correct PATH before running hook
+export NPX_DIR="$HOME/.npx"
+[ -s "$NPX_DIR/npx.sh" ] && \. "$NPX_DIR/npx.sh"
 
 #set to current user so agnoster theme will ignore, type 'whoami' to find your username
 DEFAULT_USER="flowflow"
@@ -20,7 +31,8 @@ DEFAULT_USER="flowflow"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="wezm"  
-ZSH_THEME="theunraveler"  
+#ZSH_THEME="theunraveler"  
+ZSH_THEME="powerlevel10k/powerlevel10k"  
 
 # Add `~/bin` to the `$PATH`
 # export PATH="$HOME/bin:$PATH";
@@ -38,22 +50,6 @@ elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-	complete -o default -o nospace -F _git g;
-fi;
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-# [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
-
-
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -61,17 +57,7 @@ fi;
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -168,14 +154,13 @@ load-nvmrc
 
 # adds a time and date on the right-hand-side of the terminal
 # source: https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
-RPROMPT='%{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}'
-TMOUT=1
-TRAPALRM() {
-    zle reset-prompt
-}
- 
-
-echo $ENV_VAR
+#RPROMPT='%{$fg[magenta]%}$(git_prompt_info)%{$reset_color%}'
+#TMOUT=1
+#TRAPALRM() {
+#    if [ "$WIDGET" != "complete-word" ]; then
+#        zle reset-prompt
+#    fi
+#} 
 
 # export MONGO_PATH=/usr/local/mongodb
 # export PATH=$PATH:$MONGO_PATH/binexport PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
@@ -186,7 +171,14 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+# transfer.sh function: transfer hello.txt
+#transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
+
+
+export PNPM_HOME="/Users/flowflow/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+#export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -92,6 +92,7 @@
 	required = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [core]
 	excludesfile = /Users/flowflow/.gitignore_global
 	# Make `git rebase` safer on macOS

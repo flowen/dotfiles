@@ -5,7 +5,3 @@
 #### END FIG ENV VARIABLES ####
 alias config='/usr/bin/git --git-dir=/Users/flowflow/.cfg/ --work-tree=/Users/flowflow'
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####

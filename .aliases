@@ -10,10 +10,8 @@ alias dropbox="cd ~/_DATA/Dropbox"
 alias dl="cd ~/_DATA/DOWNLOADS"
 alias dt="cd ~/Desktop"
 alias data="cd ~/_DATA/"
-alias pr="cd ~/_DATA/_PROJECTS/"
+alias projects="cd ~/_DATA/_PROJECTS/"
 alias ht="cd ~/_DATA/DOCUMENTS/_htdocs"
-alias mamp="cd ~/_DATA/DOCUMENTS/_htdocs/_MAMP_htdocs"
-alias movies="cd ~/_DATA/MOVIES"
 
 #git
 alias gs='git status -s'
@@ -44,7 +42,7 @@ alias nvmrc='node -v > .nvmrc'
 
 #apps
 alias ss='python3 -m http.server 8123' #see server() and phpserver() @ .functions
-alias code='open -a /Applications/Visual\ Studio\ Code.app '
+alias code='open -a /Applications/Visual\ Studio\ Code\ -\ Insiders.app '
 alias rx='~/.cargo/bin/rx'
 
 #alias config for committing files to dotfiles (bare) repo
