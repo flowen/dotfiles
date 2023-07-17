@@ -47,6 +47,7 @@ alias rx='~/.cargo/bin/rx'
 
 #alias config for committing files to dotfiles (bare) repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias df="dotfiles"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
