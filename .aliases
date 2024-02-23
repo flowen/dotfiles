@@ -12,7 +12,9 @@ alias dt="cd ~/Desktop"
 alias data="cd ~/_DATA/"
 alias projects="cd ~/_DATA/_PROJECTS/"
 alias ht="cd ~/_DATA/DOCUMENTS/_htdocs"
-
+alias hifi="cd ~/_DATA/DOCUMENTS/_htdocs/HIFILABS"
+alias fff="cd ~/_DATA/DOCUMENTS/_htdocs/FFF"
+alias sprinters="cd ~/_DATA/PROJECTS/SPRINTERS"
 #git
 alias gs='git status -s'
 alias grs='git reset --soft HEAD^'

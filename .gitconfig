@@ -84,7 +84,7 @@
 	whitespace = fix
 
 [user]
-	name = Rou Hun
+	name = flowen
 	email = lowen.f@gmail.com
 [filter "media"]
 	clean = git media clean %f

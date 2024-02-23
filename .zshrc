@@ -3,10 +3,6 @@
 # Please make sure this block is at the start of this file.
 [ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
 #### END FIG ENV VARIABLES ####
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/usr/local/opt/python/libexec/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/flowflow/.oh-my-zsh"
@@ -84,11 +80,9 @@ HIST_STAMPS="dd/mm/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  npm
-  nvm
-  node
-  z
-  extract
+  zsh-autosuggestions 
+  zsh-syntax-highlighting 
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -126,9 +120,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 bindkey "^[[3~" delete-char
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # autoload .nvmrc
 autoload -U add-zsh-hook
@@ -149,8 +143,9 @@ load-nvmrc() {
     nvm use default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+
+#add-zsh-hook chpwd load-nvmrc
+#load-nvmrc
 
 # adds a time and date on the right-hand-side of the terminal
 # source: https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
@@ -177,8 +172,24 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PNPM_HOME="/Users/flowflow/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-#export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+
+# to fix ffmpeg
+export DYLD_LIBRARY_PATH=/usr/local/Cellar/mbedtls/3.4.0/lib:$DYLD_LIBRARY_PATH
+
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOBIN
+export PATH=$PATH:$GOROOT/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/completion.zsh.inc'; fi
