@@ -85,7 +85,8 @@
 
 [user]
 	name = flowen
-	email = lowen.f@gmail.com
+	email = lowen@hifilabs.co
+	signingkey = key::ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2qmZtngPQxpj3LVQ6w4+RX+TXqdt6zQ8/OL6wZ04yeEy9xBEuFWF6ExYz0sT3BuxYQvxvBsz/efGSSHOWOQUGFioOUdJK8LWYj1AiJO6LVvvI4TwmuMn7vBI8dEUxYt8m28ljAJpWyr11YJyy5idI+w+98btXPVzx3CeRoJLpEAAp6HbZX3DcLevX/eSa+7FfgyEYIXXiOJaRwcK4KgxB7nS9/9BqIcuFbF0A8wXZyjR42Yz6KYzNqcGBuN/C1XLfsxUDyfyB2qM1BsfNa82dMHtQJfhMbWzqqi7xHpAYpdGkTQfZPvWa2x5XHyvpWToAn2vS3Q4n+Io+13J9qTur Main SSH Key
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -118,6 +119,7 @@
 	ui = auto
 [commit]
 	template = /Users/flowen/.stCommitMsg
+	gpgsign = true
 [http]
 	postBuffer = 524288000
 
@@ -149,3 +151,7 @@
 	defaultBranch = master
 [pull]
 	rebase = false
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

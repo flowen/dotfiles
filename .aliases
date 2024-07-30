@@ -11,11 +11,18 @@ alias dl="cd ~/_DATA/DOWNLOADS"
 alias dt="cd ~/Desktop"
 alias data="cd ~/_DATA/"
 alias projects="cd ~/_DATA/_PROJECTS/"
+alias docs="cd ~/_DATA/DOCUMENTS/"
 alias ht="cd ~/_DATA/DOCUMENTS/_htdocs"
 alias hifi="cd ~/_DATA/DOCUMENTS/_htdocs/HIFILABS"
-alias fff="cd ~/_DATA/DOCUMENTS/_htdocs/FFF"
+alias waves="cd ~/_DATA/DOCUMENTS/_htdocs/_WAVES"
 alias sprinters="cd ~/_DATA/PROJECTS/SPRINTERS"
+alias tl="task list"
+alias ta="task add"
+alias tm="task modify" 
+alias td="task done" 
+
 #git
+alias gu='git config --global user.name &&  git config --global user.email'
 alias gs='git status -s'
 alias grs='git reset --soft HEAD^'
 alias grh='git reset --hard'
@@ -28,6 +35,7 @@ alias gcfix='git commit --fixup ' #SHA
 alias gmerge='git merge --no-ff ' #BRANCH 
 alias ga='git add'
 alias gps='git push'
+alias gpo='git push -u origin'
 alias gpl='git pull'
 alias gdiff='git diff'
 alias gdiffs='git diff --staged'
@@ -61,7 +69,7 @@ else # macOS `ls`
 fi
 
 # List all files colorized in long format
-alias l="ls -lF ${colorflag}"
+alias l="ls -laF ${colorflag}"
 
 # List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
