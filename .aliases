@@ -16,10 +16,17 @@ alias ht="cd ~/_DATA/DOCUMENTS/_htdocs"
 alias hifi="cd ~/_DATA/DOCUMENTS/_htdocs/HIFILABS"
 alias waves="cd ~/_DATA/DOCUMENTS/_htdocs/_WAVES"
 alias sprinters="cd ~/_DATA/PROJECTS/SPRINTERS"
+
+#task
 alias tl="task list"
 alias ta="task add"
 alias tm="task modify" 
 alias td="task done" 
+
+#web-related stuff
+alias convertVideoToAllSizes='~/bin/convertVideoToAllSizes.sh'
+
+
 
 #git
 alias gu='git config --global user.name &&  git config --global user.email'
