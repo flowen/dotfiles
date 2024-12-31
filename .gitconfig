@@ -85,8 +85,8 @@
 
 [user]
 	name = flowen
-	email = lowen@hifilabs.co
-	signingkey = key::ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2qmZtngPQxpj3LVQ6w4+RX+TXqdt6zQ8/OL6wZ04yeEy9xBEuFWF6ExYz0sT3BuxYQvxvBsz/efGSSHOWOQUGFioOUdJK8LWYj1AiJO6LVvvI4TwmuMn7vBI8dEUxYt8m28ljAJpWyr11YJyy5idI+w+98btXPVzx3CeRoJLpEAAp6HbZX3DcLevX/eSa+7FfgyEYIXXiOJaRwcK4KgxB7nS9/9BqIcuFbF0A8wXZyjR42Yz6KYzNqcGBuN/C1XLfsxUDyfyB2qM1BsfNa82dMHtQJfhMbWzqqi7xHpAYpdGkTQfZPvWa2x5XHyvpWToAn2vS3Q4n+Io+13J9qTur Main SSH Key
+	email = lowen.f@gmail.com
+	signingkey = C1106FE03C92003B1574850BBB5A8EF41DE27700
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -152,6 +152,12 @@
 [pull]
 	rebase = false
 [gpg]
-	format = ssh
+	format = openpgp
+	program = /usr/local/bin/gpg
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
