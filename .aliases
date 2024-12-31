@@ -7,6 +7,7 @@ alias restartnow='sudo shutdown -r now'
 alias reload="exec ${SHELL} -l" # Reload the shell (i.e. invoke as a login shell)
 
 #dirs
+alias apps="cd /Applications"
 alias dropbox="cd ~/_DATA/Dropbox"
 alias dl="cd ~/_DATA/DOWNLOADS"
 alias dt="cd ~/Desktop"
