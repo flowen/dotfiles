@@ -82,7 +82,6 @@ plugins=(
   git
   zsh-autosuggestions 
   zsh-syntax-highlighting 
-  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -189,19 +188,19 @@ export PATH=$PATH:$GOROOT/bin
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/flowflow/_DATA/DOWNLOADS/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Created by `pipx` on 2024-08-23 08:45:41
 export PATH="$PATH:/Users/flowflow/.local/bin"
 
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv init -)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
