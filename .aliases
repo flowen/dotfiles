@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-alias zshrc='source ~/.zshrc'
-alias p8='ping 8.8.8.8'
-alias sshlist='sudo lsof -i -n | egrep "\<ssh\>"'
-alias restartnow='sudo shutdown -r now'
-alias reload="exec ${SHELL} -l" # Reload the shell (i.e. invoke as a login shell)
 
 #dirs
 alias apps="cd /Applications"
@@ -16,15 +11,29 @@ alias docs="cd ~/_DATA/DOCUMENTS/"
 alias ht="cd ~/_DATA/PROJECTS/_htdocs"
 alias waves="cd ~/_DATA/PROJECTS/_htwaves"
 
+#utils
+alias zshrc='source ~/.zshrc'
+alias aliases='source ~/.aliases'
+alias p8='ping 8.8.8.8'
+alias sshlist='sudo lsof -i -n | egrep "\<ssh\>"'
+alias restartnow='sudo shutdown -r now'
+alias reload="exec ${SHELL} -l" # Reload the shell (i.e. invoke as a login shell)
+alias addspace="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type\"=\"spacer-tile\";}'; killall Dock" 
+alias nothankyouadobe="sudo -H killall ACCFinderSync \"Core Sync\" AdobeCRDaemon \"Adobe Creative\" AdobeIPCBroker node \"Adobe Desktop Service\" \"Adobe Crash Reporter\";sudo -H rm -rf \"/Library/LaunchAgents/com.adobe.AAM.Updater-1.0.plist\" \"/Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist\" \"/Library/LaunchDaemons/com.adobe.*.plist\""
+alias ytmp3='cd ~/_DATA/DOWNLOADS/mp3 && yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist "$(pbpaste)"'
+
 #task warrior
 alias tl="task list"
 alias ta="task add"
 alias tm="task modify" 
 alias td="task done" 
 
-#web-related stuff
+######### Coding related stuff
+alias ss='python3 -m http.server 8123' #see server() and phpserver() @ .functions
+alias convertWebpRecursive="find . | egrep '.jpeg|.jpg|.tiff|.tif|.png|.heic' | parallel --progress 'cwebp -quiet -af {} -o {.}.webp'"
 alias convertVideoToAllSizes='~/bin/convertVideoToAllSizes.sh'
-alias nothankyouadobe="sudo -H killall ACCFinderSync \"Core Sync\" AdobeCRDaemon \"Adobe Creative\" AdobeIPCBroker node \"Adobe Desktop Service\" \"Adobe Crash Reporter\";sudo -H rm -rf \"/Library/LaunchAgents/com.adobe.AAM.Updater-1.0.plist\" \"/Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist\" \"/Library/LaunchDaemons/com.adobe.*.plist\""
+alias code='open -a /Applications/Visual\ Studio\ Code\ -\ Insiders.app '
+alias randomstring= 'openssl rand -base64 32'
 
 #git
 alias git-waves='git config --global user.name "fffwaves" && git config --global user.email "fffwaves@proton.me" && echo "Git config set for waves. Remember to set remote URL!"'
@@ -56,16 +65,16 @@ alias df="dotfiles"
 
 #node/npm
 alias ni='npm install'
-alias nd='npm run develop'
-alias yd='yarn develop'
+alias nd='npm run dev'
+alias nb='npm run build'
+alias nlist='npm list --depth=0'
+alias yd='yarn dev'
 alias yb='yarn build'
+alias yui='yarn upgrade-interactive --latest'
 alias nvmrc='node -v > .nvmrc'
 
-#apps
-alias ss='python3 -m http.server 8123' #see server() and phpserver() @ .functions
-alias code='open -a /Applications/Visual\ Studio\ Code\ -\ Insiders.app '
-alias ytmp3='cd /Users/flowflow/_DATA/DOWNLOADS/mp3 && yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist'
 
+######### SYSTEM aliases
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -75,17 +84,10 @@ else # macOS `ls`
 	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
 
-# List all files colorized in long format
-alias l="ls -laF ${colorflag}"
-
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+alias l="ls -laF ${colorflag}" # List all files colorized in long format
+alias la="ls -laF ${colorflag}" # List all files colorized in long format, including dot files
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'" # List only directories
+alias ls="command ls ${colorflag}" # Always use color output for `ls`
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -108,7 +110,7 @@ alias ips="ifconfig -a | grep -o 'inet6? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # Clean up LaunchServices to remove duplicates in the "Open With" menu
-alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killa ll Finder"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -123,16 +125,18 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode='python3 -c "import sys, urllib.parse; print(urllib.parse.quote_plus(sys.argv[1]))"'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# print random string
-alias randomstring= 'openssl rand -base64 32'
+alias killaudio="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
+
+alias top15='top -l 1 -o mem -n 15 -stats pid,command,mem'
+
+
 
 # Generated by Github Copilot extension
-
 ghcs() {
 	FUNCNAME="$funcstack[1]"
 	TARGET="shell"

@@ -204,3 +204,6 @@ export PATH="$PATH:/Users/flowflow/.local/bin"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# Added by Windsurf
+export PATH="/Users/flowflow/.codeium/windsurf/bin:$PATH"
