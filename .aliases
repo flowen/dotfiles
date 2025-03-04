@@ -32,7 +32,6 @@ alias td="task done"
 alias ss='python3 -m http.server 8123' #see server() and phpserver() @ .functions
 alias convertWebpRecursive="find . | egrep '.jpeg|.jpg|.tiff|.tif|.png|.heic' | parallel --progress 'cwebp -quiet -af {} -o {.}.webp'"
 alias convertVideoToAllSizes='~/bin/convertVideoToAllSizes.sh'
-alias code='open -a /Applications/Visual\ Studio\ Code\ -\ Insiders.app '
 alias randomstring= 'openssl rand -base64 32'
 
 #git
@@ -66,6 +65,7 @@ alias df="dotfiles"
 #node/npm
 alias ni='npm install'
 alias nd='npm run dev'
+alias ns='npm run start'
 alias nb='npm run build'
 alias nlist='npm list --depth=0'
 alias yd='yarn dev'

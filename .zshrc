@@ -10,6 +10,9 @@ export ZSH="/Users/flowflow/.oh-my-zsh"
 # OPEN AI API KEY
 export OPENAI_API_KEY=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
 
+# point gcloud to correct python
+export CLOUDSDK_PYTHON="/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+
 # See ~/.aws/credentials for profiles
 #export AWS_PROFILE="flowen"
 
