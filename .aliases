@@ -2,25 +2,25 @@
 
 #dirs
 alias apps="cd /Applications"
-alias dropbox="cd ~/_DATA/Dropbox"
 alias dl="cd ~/_DATA/DOWNLOADS"
 alias dt="cd ~/Desktop"
 alias data="cd ~/_DATA/"
-alias projects="cd ~/_DATA/PROJECTS/"
+alias p="cd ~/_DATA/PROJECTS/"
 alias docs="cd ~/_DATA/DOCUMENTS/"
 alias ht="cd ~/_DATA/PROJECTS/_htdocs"
 alias waves="cd ~/_DATA/PROJECTS/_htwaves"
 
 #utils
+alias reload="exec ${SHELL} -l" # Reload the shell (i.e. invoke as a login shell)
 alias zshrc='source ~/.zshrc'
 alias aliases='source ~/.aliases'
 alias p8='ping 8.8.8.8'
+alias h='history'
 alias sshlist='sudo lsof -i -n | egrep "\<ssh\>"'
 alias restartnow='sudo shutdown -r now'
-alias reload="exec ${SHELL} -l" # Reload the shell (i.e. invoke as a login shell)
 alias addspace="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type\"=\"spacer-tile\";}'; killall Dock" 
-alias nothankyouadobe="sudo -H killall ACCFinderSync \"Core Sync\" AdobeCRDaemon \"Adobe Creative\" AdobeIPCBroker node \"Adobe Desktop Service\" \"Adobe Crash Reporter\";sudo -H rm -rf \"/Library/LaunchAgents/com.adobe.AAM.Updater-1.0.plist\" \"/Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist\" \"/Library/LaunchDaemons/com.adobe.*.plist\""
 alias ytmp3='cd ~/_DATA/DOWNLOADS/mp3 && yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist "$(pbpaste)"'
+alias nothankyouadobe="sudo -H killall ACCFinderSync \"Core Sync\" AdobeCRDaemon \"Adobe Creative\" AdobeIPCBroker node \"Adobe Desktop Service\" \"Adobe Crash Reporter\";sudo -H rm -rf \"/Library/LaunchAgents/com.adobe.AAM.Updater-1.0.plist\" \"/Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist\" \"/Library/LaunchDaemons/com.adobe.*.plist\""
 
 #task warrior
 alias tl="task list"
@@ -29,7 +29,7 @@ alias tm="task modify"
 alias td="task done" 
 
 ######### Coding related stuff
-alias ss='python3 -m http.server 8123' #see server() and phpserver() @ .functions
+alias server='python3 -m http.server 8123' #see server() and phpserver() @ .functions
 alias convertWebpRecursive="find . | egrep '.jpeg|.jpg|.tiff|.tif|.png|.heic' | parallel --progress 'cwebp -quiet -af {} -o {.}.webp'"
 alias convertVideoToAllSizes='~/bin/convertVideoToAllSizes.sh'
 alias randomstring= 'openssl rand -base64 32'

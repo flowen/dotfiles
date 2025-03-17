@@ -142,6 +142,13 @@
 	frag = magenta bold # line info
 	old = red # deletions
 	new = green # additions
+	# added from https://github.com/mathiasbynens/dotfiles/pull/1079/files
+	meta = 11
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	commit = yellow bold
+	whitespace = red reverse
 
 [color "status"]
 
