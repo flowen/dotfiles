@@ -173,6 +173,7 @@
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
+	tool = cursor
 
 [push]
 	default = simple
@@ -211,3 +212,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[difftool "cursor"]
+	cmd = /usr/local/bin/cursor --diff \"$LOCAL\" \"$REMOTE\"
+[mergetool "cursor"]
+	cmd = /usr/local/bin/cursor --merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+[merge]
+	tool = cursor
+[mergetool]
+	prompt = false

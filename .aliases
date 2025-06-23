@@ -40,7 +40,7 @@ alias git-flowen='git config --global user.name "flowen" && git config --global 
 alias gu='git config --global user.name &&  git config --global user.email'
 alias gs='git status -s'
 alias grs='git reset --soft HEAD^'
-alias grh='git reset --hard'
+#alias grh='git reset --hard'
 alias grm='git rm -r --cached .'
 alias gco='git checkout '
 alias gcm='git commit -S -m '
@@ -64,9 +64,11 @@ alias df="dotfiles"
 
 #node/npm
 alias ni='npm install'
+alias nil='ni --legacy-peer-deps'
 alias nd='npm run dev'
-alias ns='npm run start'
 alias nb='npm run build'
+alias ns='nb && npm run start'
+alias nlint='npm run lint'
 alias nlist='npm list --depth=0'
 alias yd='yarn dev'
 alias yb='yarn build'
