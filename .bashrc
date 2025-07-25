@@ -5,3 +5,4 @@
 #### END FIG ENV VARIABLES ####
 alias config='/usr/bin/git --git-dir=/Users/flowflow/.cfg/ --work-tree=/Users/flowflow'
 
+. "$HOME/.cargo/env"

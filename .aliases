@@ -11,6 +11,7 @@ alias ht="cd ~/_DATA/PROJECTS/_htdocs"
 alias waves="cd ~/_DATA/PROJECTS/_htwaves"
 
 #utils
+alias code='"/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/code"'
 alias reload="exec ${SHELL} -l" # Reload the shell (i.e. invoke as a login shell)
 alias zshrc='source ~/.zshrc'
 alias aliases='source ~/.aliases'
@@ -62,7 +63,7 @@ alias gbcleanremote='git fetch --prune'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias df="dotfiles"
 
-#node/npm
+#npm/pnpm/yarn
 alias ni='npm install'
 alias nil='ni --legacy-peer-deps'
 alias nd='npm run dev'
@@ -70,9 +71,18 @@ alias nb='npm run build'
 alias ns='nb && npm run start'
 alias nlint='npm run lint'
 alias nlist='npm list --depth=0'
+
+alias pni='npm install'
+alias pnd='npm run dev'
+alias pnb='npm run build'
+alias pns='nb && npm run start'
+alias pnlint='npm run lint'
+alias pnlist='npm list --depth=0'
+
 alias yd='yarn dev'
 alias yb='yarn build'
 alias yui='yarn upgrade-interactive --latest'
+
 alias nvmrc='node -v > .nvmrc'
 
 
