@@ -59,9 +59,6 @@ alias glog="git log --graph --oneline --all --decorate --topo-order --pretty='fo
 alias gbcleanlocal='git branch --v | grep "\[gone\]" | awk '{print $1}' | xargs git branch -D'
 alias gbcleanremote='git fetch --prune'
 
-#alias config for committing files to dotfiles (bare) repo
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias df="dotfiles"
 
 #npm/pnpm/yarn
 alias ni='npm install'
